@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/intasend-inlinejs-sdk@4.0.5/build/intasend-inline.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Payment</title>
+</head>
+<body>
+<h1>Test IntaSend Payment Button</h1>
+<button class="intaSendPayButton" data-amount="10" data-currency="KES">Pay Now</button>
+
+<script>
+
+  new window.IntaSend({
+  publicAPIKey: "ISPubKey_test_6cfbae45-cc72-40cb-bccb-ff0542ce88e1",
+  live: false //set to true when going live
+  })
+  .on("COMPLETE", (results) => {console.log("Do something on success", results)})
+  .on("FAILED", (results) => {console.log("Do something on failure", results)})
+  .on("IN-PROGRESS", (results) => {console.log("Payment in progress status", results)})
+
+</script>
+
+</body>
+</html>
